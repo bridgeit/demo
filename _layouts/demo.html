@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+{% include head.html %}
+<body class="ui-mobile-viewport ui-overlay-c">
+    <div id="{{ page.id }}" class="ui-page ui-body-c ui-page-header-fixed ui-page-active">  
+        {% include header.html %}
+        <div class="ui-content">
+        	{{ content }}
+    	</div>
+    	{% include footer.html %}
+    	 <script type="text/javascript">
+        	//$("#{{ page.id }} .content").css({minHeight: $(window).height()-90});
+    	</script>
+    </div>
+</body>
+</html>
+
