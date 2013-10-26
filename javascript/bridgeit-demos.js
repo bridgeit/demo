@@ -4,7 +4,6 @@ window.serviceHub = 'http://labs.icesoft.com/bridgeit-services/service';
 window.androidAppStoreLink = 'https://play.google.com/store/apps/details?id=org.icemobile.client.android.icemobilesx';
 window.iosAppStoreLink = 'http://itunes.apple.com/us/app/icemobile-sx/id485908934?mt=8';
 bridgeit.launchFailed = function(){
-    alert('failure to launch');
     var appStoreLink = document.getElementById('appStoreLink');
     var iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
     var android = navigator.userAgent.toLowerCase().indexOf('android') > -1;
@@ -15,8 +14,11 @@ bridgeit.launchFailed = function(){
         appStoreLink.href = window.androidAppLink;
     }
     var popup = document.getElementById('getBridgeItPopup');
-    popup.style.opacity = 0.9;
+    popup.style.opacity = 0.95;
     popup.style.display = 'block';
+    var vwidth = document.body.clientWidth;
+    //center popup with 30px padding of body
+    popup.style.marginLeft = '' + ((vwidth*0.4)/2)-30 + 'px';
 }
 function closeGetBridgeItPopup(){
     var popup = document.getElementById('getBridgeItPopup');
