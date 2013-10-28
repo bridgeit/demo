@@ -47,3 +47,12 @@ function ajaxGet(url,cb){
     request.open('GET', url);
     request.send();
 }
+function adjustContentHeight(){
+    var vheight = document.body.clientHeight;
+    if( navigator.userAgent.indexOf('iPhone') > -1 ){
+        vheight += 62;
+    }
+    document.querySelectorAll('.ui-content')[0].style.minHeight = ''+( vheight - 120 ) + 'px';
+}
+window.addEventListener('resize', adjustContentHeight, false);
+window.addEventListener('orientationchange', adjustContentHeight, false);
