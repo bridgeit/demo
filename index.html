@@ -7,15 +7,12 @@ title: BridgeIt
          <div class="row">
             <p class="banner-text">Easily add native mobile features to your web apps</p>
             <img src="images/banner-image.png"/>
-            <a class="get-started" id="getStarted">Try it! <i class="icon-caret-down"></i></a>
+            <a class="get-started" id="getStarted" onclick="scrollToExamples();">Try it! <i class="icon-caret-down"></i></a>
             <script type="text/javascript">
-            /*
-               $("#getStarted").click(function() {
-                   $('html, body').animate({
-                       scrollTop: $("#menu").offset().top - 40
-                   }, 1000);
-               });*/
-               </script>
+                function scrollToExamples(){
+                  document.body.scrollTop = 312;
+                }
+            </script>
         </div>
     </div>
     <ul id="menu" class="menu ui-listview">
