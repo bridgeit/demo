@@ -49,8 +49,7 @@ ice.push.notify( 'myPushGroup', {
     }
 
     bridgeit.usePushService("http://labs.icesoft.com/push");
-    //change to a uniquely generated pushID once initial testing is complete
-    bridgeit.addPushListener('bridgeit', 'handlePush');
+    bridgeit.addPushListener(bridgeit.getId(), 'handlePush');
 
     //move pause and resume to ICEpush when ready
     function pausePush()  {
@@ -81,7 +80,7 @@ ice.push.notify( 'myPushGroup', {
     });
 
     function delayedPush()  {
-        bridgeit.push( 'bridgeit',
+        bridgeit.push( bridgeit.getId(),
             {subject:'BridgeIt Cloud Push',
             detail:'You have been notified.', delay:10000} );
     }
