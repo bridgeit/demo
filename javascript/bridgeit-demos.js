@@ -56,3 +56,10 @@ function adjustContentHeight(){
 }
 window.addEventListener('resize', adjustContentHeight, false);
 window.addEventListener('orientationchange', adjustContentHeight, false);
+
+function simpleTime()  {
+    var now = new Date();
+    return now.getHours() + ":" + 
+    ("00" + now.getMinutes()).slice(-2) + ":" +
+    ("00" + now.getSeconds()).slice(-2);
+}

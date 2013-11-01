@@ -27,18 +27,21 @@ ice.push.notify( 'myPushGroup', {
     </fieldset>
     <script type="text/javascript">
 
-    function handleNotification(event)  {
-        alert(event);
+    if (bridgeit.isRegistered())  {
+        document.getElementById('regBtn').style.visibility = 'hidden';
+    }
+
+    function handleReg(event)  {
+        if (bridgeit.isRegistered())  {
+            document.getElementById('regBtn').style.visibility = 'hidden';
+        }
     }
 
     function handlePush()  {
         var now = new Date();
         var outDiv = document.getElementById("notifications");
         outDiv.innerHTML = 
-            "<b>You have been notified:</b> " + 
-            now.getHours() + ":" + 
-            ("00" + now.getMinutes()).slice(-2) + ":" +
-            ("00" + now.getSeconds()).slice(-2);
+            "<b>You have been notified:</b> " + simpleTime();
         window.setTimeout(function() {
             outDiv.innerHTML = "";
         }, 5000)
@@ -49,13 +52,33 @@ ice.push.notify( 'myPushGroup', {
     //change to a uniquely generated pushID once initial testing is complete
     bridgeit.addPushListener('bridgeit', 'handlePush');
 
-    window.addEventListener("pageShow", function () {
-        ice.push.connection.resumeConnection();
-    }, false);
+    //move pause and resume to ICEpush when ready
+    function pausePush()  {
+       if (window.ice && ice.push)  {
+           ice.push.connection.pauseConnection();
+       }
+    }
+    function resumePush()  {
+       if (window.ice && ice.push)  {
+           ice.push.connection.resumeConnection();
+       }
+    }
 
-    window.addEventListener("pagehide", function () {
-        ice.push.connection.pauseConnection();
-    }, false);
+    document.addEventListener("webkitvisibilitychange", function () {
+        if (document.webkitHidden)  {
+            pausePush();
+        } else {
+            resumePush();
+        }
+    });
+
+    document.addEventListener("visibilitychange", function () {
+        if (document.hidden)  {
+            pausePush();
+        } else {
+            resumePush();
+        }
+    });
 
     function delayedPush()  {
         bridgeit.push( 'bridgeit',
