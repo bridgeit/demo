@@ -4,14 +4,15 @@ layout: demo
 title: Cloud Push
 ---
 <div>
-    <h2>Device Notifications</h2>
+    <h2>Cloud Push</h2>
     <fieldset class="desc">
-        <div class="row"><p class="normalText">Cloud notifications with ICEpush...</p></div>
+        <div class="row"><p class="normalText">Cloud Push with BridgeIt...</p></div>
         <div class="row">
 {% highlight javascript %}
-ice.push.notify( 'myPushGroup', {
-  subject: 'subject', 
-  detail: 'detail'});
+bridgeit.push( bridgeit.getId(),
+   {subject:'BridgeIt Cloud Push',
+    detail:'You have been notified.', 
+    delay:10000} );
 {% endhighlight %}
         </div>
     </fieldset>
@@ -51,7 +52,7 @@ ice.push.notify( 'myPushGroup', {
             
     }
 
-    bridgeit.usePushService("http://labs.icesoft.com/push");
+    bridgeit.usePushService("http://api.bridgeit.mobi/push/");
     bridgeit.addPushListener(bridgeit.getId(), 'handlePush');
 
     //move pause and resume to ICEpush when ready
