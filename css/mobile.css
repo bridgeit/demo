@@ -12,11 +12,12 @@ a{ text-decoration: none; }
 h2{ 
     margin: 0 -15px;
     padding: 9px 15px 5px 15px;
-    background-color: #FF855E;
-    color: #FFF;
+    background-color: #FFF;
+    color: #FF855E;
     text-shadow: none;
     margin-top: -15px;
     font-size: 22px;
+    border-bottom: 1px solid #FF855E;
 }
 .row img, .row video, .row audio{
     margin: 0 auto;
@@ -90,7 +91,7 @@ h2{
     text-shadow: 0px 2px 9px #DDD;
 }
 body .hdr{
-    background: #FFF;
+    background: #FF855E;
     position: fixed;
     top: 0;
     width: 100%;
@@ -131,11 +132,8 @@ body .hdr{
     border: none;
     background: rgba(0, 0, 0, 0);
     background-image: none;
-    color: #FF855E;
+    color: #DADADA;
     text-shadow: none;
-}
-.btnBack:hover{
-    text-shadow: 1px 1px 1px #E0E0E0;
 }
 .btnBack .ui-btn-inner{
     border:none;
@@ -168,19 +166,17 @@ body .hdr{
     font-family: 'Open Sans', sans-serif;
 }
 .bridge-font-color{
-    color: #777;
+    color: #DFDFDF;
     text-shadow: none;
-}
-.it-font-color{
-    color: #FF855E;
-    text-shadow: none;
-    margin-left: -5px;
 }
 .ui-header .ui-title, .ui-footer .ui-title{
-    margin: 5px;
+    margin: 5px 15px;
     text-align: left;
     font-size: 21px;
     font-weight: 600;
+}
+a.btnBack ~ a > .ui-title{
+    margin: 5px;
 }
 .ui-bar-a{
     border: 1px solid rgba(244,183,163,0.8);
