@@ -10,12 +10,11 @@
 }
 a{ text-decoration: none; }
 h2{ 
-    margin: 0 -15px;
+    margin: -15px -15px 0 -15px;
     padding: 9px 15px 5px 15px;
     background-color: #FFF;
     color: #FF855E;
     text-shadow: none;
-    margin-top: -15px;
     font-size: 22px;
     border-bottom: 1px solid #FF855E;
 }
@@ -91,23 +90,15 @@ h2{
     text-shadow: 0px 2px 9px #DDD;
 }
 body .hdr{
-    background: #FF855E;
+    background: #FFF;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 999;
 }
-.hdr.demo{
-    color: #FF6C3C;
-    padding-left: 35px;
-    text-shadow: 1px 1px 1px #CCC;
-}
-.icesoft-emblem {
-    right: 12px;
-    display: inline-block;
-    width: 18px;
-    top: 3px;
-    position: absolute;
+body .hdr.demo{
+    padding-left: 25px;
+    background: #FF855E;
 }
 .footer {
     position: absolute;
@@ -165,18 +156,18 @@ body .hdr{
 .ui-btn-up-c, .ui-btn-hover-c, .ui-btn-down-c  {
     font-family: 'Open Sans', sans-serif;
 }
-.bridge-font-color{
-    color: #DFDFDF;
+body .hdr, body .hdr a{
+    color: #EC5B09;
     text-shadow: none;
+}
+body .hdr.demo, body .hdr.demo a{
+    color: #FCFCFC;
 }
 .ui-header .ui-title, .ui-footer .ui-title{
     margin: 5px 15px;
     text-align: left;
     font-size: 21px;
     font-weight: 600;
-}
-a.btnBack ~ a > .ui-title{
-    margin: 5px;
 }
 .ui-bar-a{
     border: 1px solid rgba(244,183,163,0.8);
@@ -373,7 +364,6 @@ fieldset.desc{
 }
 .ui-btn-active:visited, .ui-btn-active:hover, .ui-btn-active a.ui-link-inherit,
 .btnBack:active, .btnBack:focus {
-    color: #2F3E46;
     text-shadow: 0px 0px 12px rgba(221, 87, 52, 0.5);
 }
 .ui-page-header-fixed {
@@ -382,4 +372,18 @@ fieldset.desc{
 .timestamp{
     color: red;
     font-size: 8px;
+}
+#menu i{
+    margin-right: 8px;
+    color: #9B9B9B;
+    width: 20px;
+    display: inline-block;
+    text-align: center;
+}
+span.ellipsis{
+    max-width: 100%; 
+    overflow: hidden;
+    padding: 10px;
+    text-overflow:ellipsis; 
+    white-space:nowrap
 }
