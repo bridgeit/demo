@@ -1,6 +1,11 @@
 	<div class="hdr {% if page.id != "home" %}demo{% endif %} ui-header ui-bar-a ui-header-fixed slidedown ">
-	    <a class="btnBack ui-btn-left ui-btn ui-shadow ui-btn-corner-all ui-btn-up-a" 
-	    {% if page.id == "home" %}style="width:0;opacity: 0"{% endif %}
+		{% if page.id == "home" %}
+		<h1 class="ui-title">
+	    	<span class="bridge-font-color">Bridge</span>
+	    	<span class="it-font-color">It</span>
+	    </h1>
+		{% else %}
+		<a class="btnBack ui-btn-left ui-btn ui-shadow ui-btn-corner-all ui-btn-up-a" 
 	    	href="./menu.html">
 	    	<span class="ui-btn-inner">
 	    		<span class="ui-btn-text">
@@ -8,8 +13,11 @@
 	    		</span>
 	    	</span>
 	    </a>
-	    <h1 class="ui-title">
-	    	<span class="bridge-font-color">Bridge</span>
-	    	<span class="it-font-color">It</span>
-	    </h1>
+	    <a href="./menu.html">
+		    <h1 class="ui-title">
+		    	<span class="bridge-font-color">Bridge</span>
+		    	<span class="it-font-color">It</span>
+		    </h1>
+	    </a>
+		{% endif %}
 	</div>
