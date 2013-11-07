@@ -17,15 +17,15 @@ bridgeit.geoTrack( 'myId', callback, { postURL: '/upload',
     
     <!--expected final, privacy-preserving variant below-->
     <!--a id="track" type="button" class="whiteButton bridgeItBtn"
-        onclick="bridgeit.geoTrack('tracker','handleLocation', {postURL: window.serviceHub + '/echoput/geotrack'+jguid, parameters: {strategy:'significant',duration:1,_jguid:jguid}});">Start Tracking</a-->
-    {% include button.html id="track" onclick="bridgeit.geoTrack('tracker','handleLocation', {postURL: window.serviceHub + '/echoput/geotrack', parameters: {strategy:'significant',duration:1,_jguid:jguid}});" text="Start Tracking" %}
+        onclick="bridgeit.geoTrack('tracker','handleLocation', {postURL: window.echoHub + '/echoput/geotrack'+jguid, parameters: {strategy:'significant',duration:1,_jguid:jguid}});">Start Tracking</a-->
+    {% include button.html id="track" onclick="bridgeit.geoTrack('tracker','handleLocation', {postURL: window.echoHub + '/echoput/geotrack', parameters: {strategy:'significant',duration:1,_jguid:jguid}});" text="Start Tracking" %}
 
         
     <div id="trackingMapCanvas" style="height:200px"></div>
     <script type="text/javascript">
     window.geoTracking = false;
     
-    bridgeit.usePushService("http://labs.icesoft.com/push");
+    bridgeit.usePushService(window.pushHub, window.apiKey);
     bridgeit.addPushListener('geoTrack', function() {
         console.log("geoTrack Push received");
         updateMarkers();
@@ -58,8 +58,8 @@ bridgeit.geoTrack( 'myId', callback, { postURL: '/upload',
     }
 
     function updateMarkers()  {
-//        ajaxGet(window.serviceHub + '/echofetch/geotrack-' + jguid, processMarkers);
-        ajaxGet(window.serviceHub + '/echofetch/geotrack', processMarkers);
+//        ajaxGet(window.echoHub + '/echofetch/geotrack-' + jguid, processMarkers);
+        ajaxGet(window.echoHub + '/echofetch/geotrack', processMarkers);
     }
 
     function processMarkers(data)  {

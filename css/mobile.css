@@ -52,10 +52,6 @@ h2{
     white-space: normal;
     vertical-align: top;
 }
-.highlightPlaceholder::-webkit-input-placeholder, .highlightPlaceholder:-moz-placeholder, 
-.highlightPlaceholder::-moz-placeholder, .highlightPlaceholder:-ms-input-placeholder{
-   color: red;
-}
 #getBridgeItPopup{
     width: 100%;
     height: auto;
@@ -160,8 +156,8 @@ body .hdr, body .hdr a{
     color: #EC5B09;
     text-shadow: none;
 }
-body .hdr.demo, body .hdr.demo a{
-    color: #EB5841;
+body .hdr.demo, body .hdr.demo a {
+    color: #FCFCFC;
 }
 .ui-header .ui-title, .ui-footer .ui-title{
     margin: 5px 15px;

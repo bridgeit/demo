@@ -52,7 +52,7 @@ bridgeit.push( bridgeit.getId(),
             
     }
 
-    bridgeit.usePushService("http://api.bridgeit.mobi/push/");
+    bridgeit.usePushService(window.pushHub, window.apiKey);
     bridgeit.addPushListener(bridgeit.getId(), 'handlePush');
 
     //move pause and resume to ICEpush when ready
