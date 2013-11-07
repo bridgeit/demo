@@ -161,7 +161,7 @@ body .hdr, body .hdr a{
     text-shadow: none;
 }
 body .hdr.demo, body .hdr.demo a{
-    color: #FCFCFC;
+    color: #EB5841;
 }
 .ui-header .ui-title, .ui-footer .ui-title{
     margin: 5px 15px;
@@ -386,4 +386,7 @@ span.ellipsis{
     padding: 10px;
     text-overflow:ellipsis; 
     white-space:nowrap
+}
+.ui-btn-up-c:visited, .ui-btn-up-c a.ui-link-inherit, .ui-btn-active a.ui-link-inherit {
+    color: #666;
 }
