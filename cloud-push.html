@@ -17,7 +17,7 @@ bridgeit.push( bridgeit.getId(),
         </div>
     </fieldset>
 
-    {% include button.html id="regBtn" onclick="bridgeit.register('_reg');" text="Enable Cloud Push" %}
+    {% include button.html id="regBtn" onclick="bridgeit.register('_reg', 'handlePushRegistration');" text="Enable Cloud Push" %}
   
     {% include button.html id="pushBtn" onclick="delayedPush();" text="Push in 10 seconds ..." %}
   
@@ -29,12 +29,13 @@ bridgeit.push( bridgeit.getId(),
     <script type="text/javascript">
 
     if (bridgeit.isRegistered())  {
-        document.getElementById('regBtn').style.visibility = 'hidden';
+        document.getElementById('regBtn').style.display = 'none';
     }
 
-    function handleReg(event)  {
+    function handlePushRegistration(event)  {
+        console.log('handlePushRegistration() called, registered=' + bridgeit.isRegistered());
         if (bridgeit.isRegistered())  {
-            document.getElementById('regBtn').style.visibility = 'hidden';
+            document.getElementById('regBtn').style.display = 'none';
         }
     }
 
@@ -42,14 +43,21 @@ bridgeit.push( bridgeit.getId(),
         var now = new Date();
         var outDiv = document.getElementById("notifications");
         var row = document.createElement("div");
-        row.style["background-color"] = "#FF855E";
+        if( hasClassList() )
+            row.classList.add('hl');
         outDiv.insertBefore(row, outDiv.firstChild);
             row.innerHTML =
-            "<b>You have been notified:</b> " + simpleTime();
+            "<b>You were notified:</b> " + simpleTime();
         window.setTimeout(function() {
-            row.style["background-color"] = "white";
-        }, 3000)
+            if( hasClassList() )
+                row.classList.remove('hl');
+        }, 3000);
+        updatePushButtonText('Push in 10 seconds ...');
             
+    }
+
+    function updatePushButtonText(text){
+        document.getElementById('pushBtn').children[0].children[0].innerText = text;
     }
 
     bridgeit.usePushService(window.pushHub, window.apiKey);
@@ -87,6 +95,7 @@ bridgeit.push( bridgeit.getId(),
         bridgeit.push( bridgeit.getId(),
             {subject:'BridgeIt Cloud Push',
             detail:'You have been notified.', delay:10000} );
+        updatePushButtonText('Waiting for push...');
     }
     </script>
 </div>
